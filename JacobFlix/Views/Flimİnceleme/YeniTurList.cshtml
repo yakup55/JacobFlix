@@ -1,0 +1,12 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<Tur>
+<div class="grid-top">
+    <h4>Türlere göre izle</h4>
+    <ul>
+        @foreach (var x in Model)
+        {
+            <li><a href="/Flimİnceleme/TurList/@x.TurID">@x.TurName</a></li>
+        }
+
+    </ul>
+</div>

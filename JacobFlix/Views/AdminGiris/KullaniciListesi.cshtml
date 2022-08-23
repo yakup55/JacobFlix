@@ -1,0 +1,32 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<KullaniciGiris>
+@{
+    ViewBag.Title = "KullaniciListesi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Kullanici Listesi</h2>
+
+<table class="table table-dark">
+    <tr>
+        <td>İD</td>
+        <td>KULLANICI ADI SOYADI</td>
+        <td>MAİL</td>
+        <td>ŞİFRE</td>
+        <td>SİL</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.İd</td>
+            <td>@x.KullanıcıAdı</td>
+            <td>@x.Email</td>
+            <td>@x.Sifre</td>
+
+
+            <td><a href="/AdminGiris/KullaniciSil/@x.İd" class="btn btn-outline-primary m-2">SİL</a></td>
+        </tr>
+    }
+
+
+</table>

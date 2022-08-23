@@ -1,0 +1,221 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<FilimBilgisi>
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JacobFlix</title>
+    <link href="~/cinema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+    <!-- Custom Theme files -->
+    <link href="~/cinema/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="~/cinema/web/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <script src="~/cinema/web/js/jquery.magnific-popup.js"></script>
+    <script src="~/cinema/web/js/jquery.flexisel.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <!-- header-section-starts -->
+    <div class="full">
+        <div class="menu">
+            <ul>
+                <li><a class="active" href="/Default/Index"><i class="home"></i></a></li>
+                <li><a href="/Flimİnceleme/Index"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+                <li><a href="/Default/İletisimYap"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+                <li><a href="/Hakkimda/Index"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="header">
+                <div class="top-header">
+                    <div class="logo">
+                        <img src="~/cinema/web/images/Ekran Görüntüsü (114).png" width="200" :height="200" />
+                        @*<img src="~/cinema/web/images/Ekran Görüntüsü (14).png" width="200" :height="200" />*@
+                    </div>
+                    <div class="search">
+                        <form>
+                            <input type="text" value="Ara.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" />
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-info">
+                    <h1>BÜYÜK KAHRAMAN 6</h1>
+                    <p class="age"><a href="#">Tüm Yaş</a> Don Hall, Chris Williams</p>
+                    <p class="review">Degerlendirme:8,5/10</p>
+                    <p class="review reviewgo">Tür:Animation, Action, Comedy</p>
+                    <p class="review">Çıkış Tarihi:7 Kasım 2014</p>
+                    <p class="special">Büyük boy şişme robot Baymax ile bir grup arkadaşıyla bir araya gelerek yüksek teknolojili kahramanlardan oluşan bir grup oluşturan dahi Hiro Hamada arasında gelişen özel bağ.</p>
+                    <a class="video" href="https://youtu.be/scIF0tFgthQ"><i class="video1"></i>FRAGMANI İZLE</a>
+                    <a class="book" href="/Hata/Index"><i class="book1"></i>BİLET AYIRT</a>
+                </div>
+            </div>
+            <div class="review-slider">
+                <ul id="flexiselDemo1">
+                    @foreach (var y in Model)
+                    {
+                        <li class="nbs-flexisel-item" style="width: 220.5px;"><img src="@y.Resim" alt="" height="287" width="412"></li>
+                    }
+                </ul>
+                <script type="text/javascript">
+                    $(window).load(function () {
+
+                        $("#flexiselDemo1").flexisel({
+                            visibleItems: 12,
+                            animationSpeed: 1000,
+                            autoPlay: true,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: false,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint: 480,
+                                    visibleItems: 12
+                                },
+                                landscape: {
+                                    changePoint: 640,
+                                    visibleItems: 12
+                                },
+                                tablet: {
+                                    changePoint: 768,
+                                    visibleItems: 12
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/2LqzF5WauAw" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="news">
+                <div class="col-md-6 news-left-grid">
+                    <h3>Geç Kalmayın</h3>
+                    <h2>Biletinizi Şimdiden Ayırtın</h2>
+                    <h4>
+                        Kolay, basit ve hızlı.
+                    </h4>
+                    <a href="/ErrorPage/Page404"><i class="book"></i>Bilet Rezervasyonu</a>
+                    <p>Üye iseniz <strong>10%</strong> varan indirim kazanın</p>
+                </div>
+                @*<div class="col-md-6 news-right-grid">
+                        <h3>Haberler</h3>
+                        <div class="news-grid">
+                            @foreach (var z in Model)
+                            {
+                                <h5>
+                                    @z.FlimAd
+                                </h5>
+
+
+                            }
+                        </div>
+
+                        <a class="more" href="#">MORE</a>
+                    </div>*@
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="more-reviews">
+                <ul id="flexiselDemo2">
+                    @foreach (var y in Model)
+                    {
+
+                        <li class="nbs-flexisel-item" style="width: 220.5px;"><img src="@y.Resim" alt="" height="287" width="412"></li>
+
+                    }
+                </ul>
+
+                <script type="text/javascript">
+                    $(window).load(function () {
+
+                        $("#flexiselDemo2").flexisel({
+                            visibleItems: 12,
+                            animationSpeed: 1000,
+                            autoPlay: true,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: false,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint: 480,
+                                    visibleItems: 12
+                                },
+                                landscape: {
+                                    changePoint: 640,
+                                    visibleItems: 12
+                                },
+                                tablet: {
+                                    changePoint: 768,
+                                    visibleItems: 12
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <script type="text/javascript" src="~/cinema/web/js/jquery.flexisel.js"></script>
+            </div>
+            <div class="footer news-right-grid" style="scroll-margin-top:revert">
+                <footer class="py-5">
+
+                    <div class="container py-sm-3">
+                        <div class="row footer-grids">
+                            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+                                <h4 class="mb-4"><span class="fa fa-cutlery"></span> JacobFlix</h4>
+                                <p class="mb-3">
+                                    Birbirinden Güzel Filimler ve Fragmanlar Sizleri Bekliyor
+                                </p>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 mb-md-0 mb-sm-5 mb-4">
+                                <h4 class="mb-4">Addreslerimiz</h4>
+                                <p><span class="fa mr-2 fa-map-marker"></span>Samsun <span>Türkiye</span></p>
+                                <p><span class="fa mr-2 fa-envelope"></span><a href="mailto:yakup.0950@gmail.com">yakup.0950@gmail.com</a></p>
+                            </div>
+                            <div class="col-lg-4 col-sm-6">
+                                <h4 class="mb-4">Bizi Takip Et</h4>
+                                <p class="mb-3">Bana Buradan Ulaşabilirsin</p>
+                                <div class="icon-social mt-3">
+                                    <a href="https://z-p15.www.instagram.com/yakup.0950/" class="button-footr">
+                                        <span class="fa mx-2 fa-instagram"></span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/yakup-y%C4%B1ld%C4%B1r%C4%B1m-7a12b0200" class="button-footr">
+                                        <span class="fa mx-2 fa-linkedin"></span>
+                                    </a>
+                                    <a href="https://github.com/yakup55" class="button-footr">
+                                        <span class="fa mx-2 fa-github"></span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>  
+
+        </div>
+    </div>
+</body>
+</html>
+
+

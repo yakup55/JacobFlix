@@ -1,0 +1,42 @@
+﻿@model JacobFlix.Models.Siniflar.FilimBilgisi
+@{
+    ViewBag.Title = "FlimGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Filim Getir Sayfası</h2>
+@using (Html.BeginForm("FlimGuncelle", "AdminGiris", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.FilimID, new { @class = "form-control", @required = "required" })
+    <br />
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Konu)
+    @Html.TextAreaFor(x => x.Konu, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Resim)
+    @Html.TextBoxFor(x => x.Resim, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ElestirmenDerece)
+    @Html.TextBoxFor(x => x.ElestirmenDerece, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tur)
+    @Html.TextAreaFor(x => x.TurID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Sure)
+    @Html.TextBoxFor(x => x.Sure, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yonetmen)
+    @Html.TextBoxFor(x => x.Yonetmen, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CikisTarihi)
+    @Html.TextBoxFor(x => x.CikisTarihi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.İzle)
+    @Html.TextAreaFor(x => x.İzle, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fragman)
+    @Html.TextAreaFor(x => x.Fragman, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success m-2">Flim Güncelle</button>
+}

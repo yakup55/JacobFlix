@@ -1,0 +1,25 @@
+﻿@model JacobFlix.Models.Siniflar.İletisim
+@{
+    ViewBag.Title = "İletisimGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Admin İletisim Getir Paneli</h2>
+
+@using (Html.BeginForm("İletisimGuncelle", "AdminGiris", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.İD)
+    @Html.TextBoxFor(x => x.İD, new { @class = "form-control", @redonly = "redonly" })
+    <br />
+    @Html.LabelFor(x => x.AdSoyad)
+    @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control", @redonly = "redonly" })
+    <br />
+    @Html.LabelFor(x => x.Eposta)
+    @Html.TextBoxFor(x => x.Eposta, new { @class = "form-control", @redonly = "redonly" })
+    <br />
+    @Html.LabelFor(x => x.Telefon)
+    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", @redonly = "redonly" })
+    <br />
+    @Html.LabelFor(x => x.Mesaj)
+    @Html.TextBoxFor(x => x.Mesaj, new { @class = "form-control", @redonly = "redonly" })
+    <br />
+}

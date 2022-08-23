@@ -1,0 +1,34 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<Tur>
+@{
+    ViewBag.Title = "TurListesi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Tür Listesi Paneli</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <td>İD</td>
+        <td>TÜR ADI</td>
+        <td>DURUM</td>
+        <td>AKTİF</td>
+        <td>PASİF</td>
+        <td>GÜNCELLE</td>
+        <td>SİL</td>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TurID</td>
+            <td>@x.TurName</td>
+            <td>@x.Durum</td>
+            <td><a href="/AdminGiris/TurAktif/@x.TurID" class="btn btn-outline-primary m-2">AKTİF</a></td>
+            <td><a href="/AdminGiris/TurPasif/@x.TurID" class="btn btn-outline-primary m-2">PASİF</a></td>
+            <td><a href="/AdminGiris/TurGetir/@x.TurID" class="btn btn-outline-success m-2">GÜNCELLE</a></td>
+            <td><a href="/AdminGiris/TurSil/@x.TurID" class="btn btn-outline-primary m-2">SİL</a></td>
+        </tr>
+    }
+</table>
+<a href="/AdminGiris/YeniTur/" class="btn btn-outline-info m-2">Yeni Tür</a>

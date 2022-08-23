@@ -1,0 +1,104 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<FilimBilgisi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Filim Sayısı</p>
+                    <h6 class="mb-0">@ViewBag.filim</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Toplam Yorum Sayısı</p>
+                    <h6 class="mb-0">@ViewBag.yorum</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Toplam Kullanıcı Sayısı</p>
+                    <h6 class="mb-0">@ViewBag.kullanıcı</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Toplam İletişim Sayısı</p>
+                    <h6 class="mb-0">@ViewBag.iletisim</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Onaysız Yorum Sayısı</p>
+                    <h6 class="mb-0">@ViewBag.yorum</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/AdminGiris/YeniFlim/" class="btn btn-outline-info m-2">Yeni Flim</a>
+
+<h2>Filim Listesi</h2>
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            <th>Detaylar</th>
+            <th>ID</th>
+            <th>FLİM ADI</th>
+            <th>KONU</th>
+            <th>RESİM</th>
+            <th>Derece</th>
+            <th>Sure</th>
+            <th>Fragman</th>
+            <th>İzle</th>
+            <th>Yönetmen</th>
+            <th>Çıkış Tarihi</th>
+
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td><a href="/AdminGiris/FlimSil/@x.FilimID" class="btn btn-outline-primary m-2">SİL</a></td>
+                <td><a href="/AdminGiris/FlimGetir/@x.FilimID" class="btn btn-outline-success m-2">GÜNCELLE</a></td>
+                <td><a class="btn btn-outline-primary m-2" href="/Flimİnceleme/Detay/@x.FilimID">Detaylar</a></td>
+                <td>@x.FilimID</td>
+                <td>@x.Ad</td>
+                <td>@x.Konu</td>
+                <td><img src="@x.Resim" width="150" height="150" /></td>
+                <th scope="col">@x.ElestirmenDerece</th>
+                <th scope="col">@x.Sure</th>
+                <th scope="col">@x.Fragman</th>
+                <th scope="col">@x.İzle</th>
+                <th scope="col">@x.Yonetmen</th>
+                <th scope="col">@x.CikisTarihi</th>
+
+            </tr>
+        }
+    </table>
+
+    <!-- Recent Sales End -->
+    <!-- Widgets Start -->
+    <!-- Widgets End -->
+    <!-- Footer Start -->
+    <!-- Footer End -->
+</div>

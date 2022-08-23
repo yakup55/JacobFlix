@@ -1,0 +1,19 @@
+﻿@model JacobFlix.Models.Siniflar.AdminGirisi
+@{
+    ViewBag.Title = "AdminGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Flim Getir Sayfası</h2>
+@using (Html.BeginForm("AdminGuncelle", "AdminGiris", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.İD, new { @class = "form-control", @required = "required" })
+    <br />
+    @Html.LabelFor(x => x.KullanıcıAdı)
+    @Html.TextBoxFor(x => x.KullanıcıAdı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Sifre)
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-outline-success m-2">Admin Güncelle</button>
+}

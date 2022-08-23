@@ -1,0 +1,37 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<FilimBilgisi>
+<div class="col-md-3 side-bar">
+    <div class="featured">
+        <h3>En Yeniler</h3>
+
+
+        <ul>
+            @foreach (var x in Model)
+            {
+                <li>
+                    <a href="/Flimİnceleme/Detay/@x.FilimID"><img src="@x.Resim" height="100" width="100" alt="" /></a>
+                    <h6>@x.Ad</h6>
+                </li>
+                
+            }
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+
+    @*<div class="entertainment">
+            <h3>Benzer Filimler</h3>
+            <ul>
+
+                <li class="ent">
+                    <a href="single.html"><img src="images/f6.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="single.html">Watch ‘Bombay Velvet’ trailer during WC match</a>
+
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+            <div class="clearfix"></div>
+        </div>*@
+    @Html.Action("YeniTurList", "Flimİnceleme")
+</div>

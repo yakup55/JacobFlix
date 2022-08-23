@@ -1,0 +1,19 @@
+﻿@model JacobFlix.Models.Siniflar.Tur
+@{
+    ViewBag.Title = "TurGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Filim Getir Sayfası</h2>
+@using (Html.BeginForm("TurGuncelle", "AdminGiris", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.TurID, new { @class = "form-control", @required = "required" })
+    <br />
+    @Html.LabelFor(x => x.TurName)
+    @Html.TextBoxFor(x => x.TurName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success m-2">Flim Güncelle</button>
+}

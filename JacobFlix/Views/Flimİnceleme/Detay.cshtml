@@ -1,0 +1,124 @@
+﻿
+@model  JacobFlix.Models.Siniflar.FlimYorum
+
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JacobFlix</title>
+    <link href="/cinema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="/cinema/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <!-- header-section-starts -->
+    <div class="full">
+        <div class="menu">
+            <ul>
+                <li><a class="active" href="/Default/Index"><i class="home"></i></a></li>
+                <li><a href="/Flimİnceleme/Index"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+                <li><a href="/Default/İletisimYap"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+                <li><a href="/Hakkimda/Index"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="single-content">
+                <div class="top-header span_top">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/logo.png" alt="" /></a>
+                        <p>SİNEMA</p>
+                    </div>
+                    <div class="search v-search">
+                        <form>
+                            <input type="text" value="Ara.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" />
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="reviews-section">
+                    <h3 class="head">Filim Degerlendirme</h3>
+                    <br />
+                    <div class="col-md-9 reviews-grids">
+                        @foreach (var x in Model.Deger3)
+                        {
+                            <div class="movie-pic">
+                                <a href="/Flimİnceleme/Detay/@x.FilimID"><img src="@x.Resim" width="200" height="400" /></a>
+                            </div>
+                            <div class="review">
+                                <div class="review-info">
+                                    <a class="span" href="/Flimİnceleme/Detay/@x.FilimID">@x.Ad</a>
+                                    <p class="dirctr"><a href="">Yönetmen:@x.Yonetmen </a>Çıkış Tarihi:@x.CikisTarihi</p>
+                                    <div class="clearfix"></div>
+                                    <div class="clearfix"></div>
+                                    <div class="yrw">
+                                        <div class="rtm text-center">
+                                            <a href="@x.İzle">Bu Flimi İzle</a>
+                                        </div>
+                                        <div class="wt text-center">
+                                            <a href="@x.Fragman">Fragman İzle</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    KONU: <textarea>@x.Konu</textarea>
+                                    @*<p class="info">KONU:@x.Konu</p>*@
+                                    <p>TÜR: @x.tur.TurName</p>
+                                    <p>SÜRE: @x.Sure Dakika</p>
+                                </div>
+                            </div>
+                        }
+
+
+                        <div>
+                            <div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        @foreach (var y in Model.Deger2)
+                        {
+                            <ul class="comment-list">
+                                <li>
+                                    <img src="~/Resim/avatar.pnp.png" height="75" width="75" />
+                                    <div class="desc">
+                                        <p>@y.KullanıcıAdı:@y.Yorum </p>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                            </ul>
+
+                        }
+
+                        @Html.Action("YorumYap", "Flimİnceleme")
+                    </div>
+
+                    @Html.Action("YeniFilimList", "Flimİnceleme")
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>

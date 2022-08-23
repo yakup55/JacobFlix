@@ -1,0 +1,135 @@
+﻿@using JacobFlix.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<FilimBilgisi>
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JacobFlix</title>
+    <link href="/cinema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="/cinema/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <!-- header-section-starts -->
+    <div class="full">
+        <div class="menu">
+            <ul>
+                <li><a href="/Default/Index"><div class="hm"><i class="home1"></i><i class="home2"></i></div></a></li>
+                <li><a class="/Flimİnceleme/Index" href="/Flimİnceleme/Index"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+                <li><a href="/Default/İletisimYap"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+                <li><a href="/Hakkimda/Index"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="review-content">
+                <div class="top-header span_top">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/logo.png" alt="" /></a>
+                        <p>SİNEMA</p>
+                    </div>
+                    <div class="search v-search">
+                        <form>
+                            <input type="text" value="Ara.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" />
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="reviews-section">
+                    <h3 class="head">Filimler</h3>
+                    <div class="col-md-9 reviews-grids">
+                        <div class="review">
+                            @foreach (var x in Model)
+                            {
+                                <div class="movie-pic">
+                                    <a href="/Flimİnceleme/Detay/@x.FilimID"><img src="@x.Resim" width="100" height="230" /></a>
+                                </div>
+                                <br />
+                                <div class="review-info">
+                                    <a class="span" href="/Flimİnceleme/Detay/ @x.FilimID">@x.Ad</a>
+                                    <p class="dirctr"><a href="">Yönetmen:@x.Yonetmen </a>Çıkış Tarihi:@x.CikisTarihi</p>
+                                    <p class="ratingview c-rating">Genel Degerlendirme:@x.ElestirmenDerece</p>
+                                    <div class="clearfix"></div>
+                                    <div class="clearfix"></div>
+                                    <p class="info">KONU:@x.Konu </p>
+                                    <p class="info">TÜR: @x.tur.TurName</p>
+                                    <p class="info">SÜRE: @x.Sure Dakika</p>
+                                </div>
+                            }
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="footer news-right-grid" style="scroll-margin-top:revert">
+                <footer class="py-5">
+
+                    <div class="container py-sm-3">
+                        <div class="row footer-grids">
+                            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+                                <h4 class="mb-4"><span class="fa fa-cutlery"></span> JacobFlix</h4>
+                                <p class="mb-3">
+                                    Birbirinden Güzel Filimler ve Fragmanlar Sizleri Bekliyor
+                                </p>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 mb-md-0 mb-sm-5 mb-4">
+                                <h4 class="mb-4">Addreslerimiz</h4>
+                                <p><span class="fa mr-2 fa-map-marker"></span>Samsun <span>Türkiye</span></p>
+                                <p><span class="fa mr-2 fa-envelope"></span><a href="mailto:yakup.0950@gmail.com">yakup.0950@gmail.com</a></p>
+                            </div>
+                            <div class="col-lg-4 col-sm-6">
+                                <h4 class="mb-4">Bizi Takip Et</h4>
+                                <p class="mb-3">Bana Buradan Ulaşabilirsin</p>
+                                <div class="icon-social mt-3">
+                                    <a href="https://z-p15.www.instagram.com/yakup.0950/" class="button-footr">
+                                        <span class="fa mx-2 fa-instagram"></span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/yakup-y%C4%B1ld%C4%B1r%C4%B1m-7a12b0200" class="button-footr">
+                                        <span class="fa mx-2 fa-linkedin"></span>
+                                    </a>
+                                    <a href="https://github.com/yakup55" class="button-footr">
+                                        <span class="fa mx-2 fa-github"></span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+</body>
+</html>
+@Html.PagedListPager((IPagedList)Model, p => Url.Action("TurList", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})

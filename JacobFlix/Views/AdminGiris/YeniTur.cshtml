@@ -1,0 +1,14 @@
+﻿@model JacobFlix.Models.Siniflar.Tur
+@{
+    ViewBag.Title = "YeniTur";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Yeni Flim Ekleme Sayfası</h2>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.TurName)
+    @Html.TextBoxFor(x => x.TurName, new { @class = "form-control" })
+    <br />
+  
+
+    <button class="btn btn-outline-info m-2">Tur Ekle</button>
+</form>

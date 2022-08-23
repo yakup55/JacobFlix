@@ -1,0 +1,37 @@
+﻿@using JacobFlix.Models.Siniflar
+@model List<Yorumlar>
+@{
+    ViewBag.Title = "YorumListesi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yorum Listesi Paneli</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <td>İD</td>
+        <td>KULLANICI ADI</td>
+        <td>MAİL</td>
+        <td>YORUM</td>
+        <td>FİLİM ADI</td>
+        <td>DURUM</td>
+        <td>AKTİF</td>
+        <td>PASİF</td>
+        <td>SİL</td>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.İD</td>
+            <td>@x.KullanıcıAdı</td>
+            <td>@x.Mail</td>
+            <td>@x.Yorum</td>
+            <td>@x.FilimBilgisi.Ad</td>
+            <td>@x.Durum</td>
+            <td><a href="/AdminGiris/YorumAktif/@x.İD" class="btn btn-outline-primary m-2">AKTİF</a></td>
+            <td><a href="/AdminGiris/YorumPasif/@x.İD" class="btn btn-outline-primary m-2">PASİF</a></td>
+            <td><a href="/AdminGiris/YorumSil/@x.İD" class="btn btn-outline-primary m-2">SİL</a></td>
+        </tr>
+    }
+</table>
