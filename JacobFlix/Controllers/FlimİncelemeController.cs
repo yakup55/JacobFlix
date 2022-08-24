@@ -51,7 +51,7 @@ namespace JacobFlix.Controllers
         }
         public PartialViewResult YeniFilimList()
         {
-            var list = c.FilimBilgisis.OrderByDescending(x => x.FilimID).Take(6).ToList();
+            var list = c.FilimBilgisis.OrderByDescending(x => x.FilimID).Take(12).ToList();
             return PartialView(list);
         }
         public PartialViewResult YeniTurList(int id)

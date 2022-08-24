@@ -49,14 +49,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="search v-search">
                         <form>
-                            <input type="text" value="Ara.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" />
-                            <input type="submit" value="">
+                            <div class="logo">
+                                <img src="~/cinema/web/images/Ekran Görüntüsü (114).png" width="220" :height="175" />
+                                @*<img src="~/cinema/web/images/Ekran Görüntüsü (14).png" width="200" :height="200" />*@
+                            </div>
                         </form>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="reviews-section">
-                    <h3 class="head">Filim Degerlendirme</h3>
+                    <h3 class="head">Film Degerlendirme</h3>
                     <br />
                     <div class="col-md-9 reviews-grids">
                         @foreach (var x in Model.Deger3)

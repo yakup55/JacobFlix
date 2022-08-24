@@ -13,7 +13,7 @@ namespace JacobFlix.Controllers
         //[Authorize]
         public ActionResult Index()
         {
-            var degerler = c.FilimBilgisis.ToList();
+            var degerler = c.FilimBilgisis.OrderByDescending(x=>x.FilimID).ToList();
             ViewBag.filim = c.FilimBilgisis.Count();
             ViewBag.yorum = c.Yorumlars.Count();    
             ViewBag.kullanıcı = c.KullaniciGirisis.Count();

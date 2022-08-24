@@ -9,8 +9,8 @@
             @foreach (var x in Model)
             {
                 <li>
-                    <a href="/Flimİnceleme/Detay/@x.FilimID"><img src="@x.Resim" height="100" width="100" alt="" /></a>
-                    <h6>@x.Ad</h6>
+                    <a href="/Flimİnceleme/Detay/@x.FilimID"><img src="@x.Resim" height="150" width="200" alt="" /></a>
+                    <h9>@x.Ad.Substring(0,7) . </h9>
                 </li>
                 
             }
