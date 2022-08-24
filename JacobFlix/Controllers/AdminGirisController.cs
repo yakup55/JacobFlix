@@ -10,20 +10,20 @@ namespace JacobFlix.Controllers
     {
         // GET: AdminGiris
         Context c = new Context();
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             var degerler = c.FilimBilgisis.ToList();
-           ViewBag.filim = c.FilimBilgisis.Count();
-           ViewBag.yorum = c.Yorumlars.Count();
-            ViewBag.kullanıcı=c.KullaniciGirisis.Count();
-            ViewBag.iletisim=c.iletisims.Count();
-            ViewBag.yorum = c.Yorumlars.Count(x=>x.Durum==false);
+            ViewBag.filim = c.FilimBilgisis.Count();
+            ViewBag.yorum = c.Yorumlars.Count();    
+            ViewBag.kullanıcı = c.KullaniciGirisis.Count();
+            ViewBag.iletisim = c.iletisims.Count();
+            ViewBag.yorum = c.Yorumlars.Count(x => x.Durum == false);
             return View(degerler);
         }
         public ActionResult text()
         {
-           
+
             return View();
         }
         [HttpGet]
@@ -45,44 +45,39 @@ namespace JacobFlix.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult FlimListesi()
-        {
-            var degerler = c.FilimBilgisis.ToList();
-            return View(degerler);
-        }
+        //public ActionResult FlimListesi()
+        //{
+        //    var degerler = c.FilimBilgisis.ToList();
+        //    return View(degerler);
+        //}
         public ActionResult FlimSil(int id)
         {
             var degerler = c.FilimBilgisis.Find(id);
             c.FilimBilgisis.Remove(degerler);
             c.SaveChanges();
-            return RedirectToAction("FlimListesi");
+            return RedirectToAction("Index");
         }
         public ActionResult FlimGetir(int id)
         {
             var degerler = c.FilimBilgisis.Find(id);
-            return View("FlimGetir",degerler);
-        }
-        [HttpGet]
-        public ActionResult FlimGuncelle()
-        {
-            return View();
+            return View("FlimGetir", degerler);
         }
         [HttpPost]
-            public ActionResult FlimGuncelle(FilimBilgisi flm1)
+        public ActionResult FlimGuncelle(FilimBilgisi flm1)
         {
             var degerler = c.FilimBilgisis.Find(flm1.FilimID);
             degerler.Ad = flm1.Ad;
             degerler.Konu = flm1.Konu;
             degerler.Resim = flm1.Resim;
-            degerler.ElestirmenDerece = flm1.ElestirmenDerece;
-            degerler.Yonetmen = flm1.Yonetmen;
-            degerler.CikisTarihi = flm1.CikisTarihi;
-            degerler.Tur = flm1.Tur;
-            degerler.Sure = flm1.Sure;
+            degerler.FilimDerecesi = flm1.FilimDerecesi;
+            degerler.FilimYonetmen = flm1.FilimYonetmen;
+            degerler.FilimCikisTarihi = flm1.FilimCikisTarihi;
+            degerler.FilimTur = flm1.FilimTur;
+            degerler.FilimSure = flm1.FilimSure;
             degerler.İzle = flm1.İzle;
             degerler.Fragman = flm1.Fragman;
             c.SaveChanges();
-            return RedirectToAction("FlimListesi");
+            return RedirectToAction("Index");
         }
         //Admin Profili
         public ActionResult AdminProfile()
@@ -107,7 +102,7 @@ namespace JacobFlix.Controllers
         //Türler
         public ActionResult TurListesi()
         {
-            var tur=c.Turs.ToList();
+            var tur = c.Turs.ToList();
             return View(tur);
         }
         [HttpGet]
@@ -128,7 +123,7 @@ namespace JacobFlix.Controllers
             var degerler = c.Turs.Find(id);
             return View("TurGetir", degerler);
         }
-       
+
         public ActionResult TurSil(int id)
         {
             var yorum = c.Turs.Find(id);
@@ -164,52 +159,10 @@ namespace JacobFlix.Controllers
 
             return RedirectToAction("TurListesi");
         }
-        //[HttpGet]
-        //public ActionResult YeniDegerlendirme()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult YeniDegerlendirme(FilimBilgisi dgr)
-        //{
-        //    c.FilimBilgisis.Add(dgr);
-        //    c.SaveChanges();
-        //    return RedirectToAction("DegerlendirmeListesi");
-        //}
-        //public ActionResult DegerlendirmeListesi()
-        //{
-        //    var degerler = c.FilimBilgisis.ToList();
-        //    return View(degerler);
-        //}
-        //public ActionResult DegerlendirmeSil(int id)
-        //{
-        //    var degerler = c.FilimBilgisis.Find(id);
-        //    c.FilimBilgisis.Remove(degerler);
-        //    c.SaveChanges();
-        //    return RedirectToAction("DegerlendirmeListesi");
-        //}
-        //public ActionResult DegerlendirmeGetir(int id)
-        //{
-        //    var degerler = c.FilimBilgisis.Find(id);
-        //    return View("DegerlendirmeGetir", degerler);
-        //}
-        //public ActionResult DegerlendirmeGuncelle(FilimBilgisi dgr1)
-        //{
-        //    var degerler = c.FilimBilgisis.Find(dgr1.FilimID);
-        //    degerler.ElestirmenDerece = dgr1.ElestirmenDerece;
-        //   degerler.Yonetmen=dgr1.Yonetmen; 
-        //    degerler.CikisTarihi=dgr1.CikisTarihi;
-        //    degerler.Tur = dgr1.Tur;
-        //    degerler.Sure = dgr1.Sure;
-        //    degerler.İzle= dgr1.İzle;
-        //    degerler.Fragman = dgr1.Fragman;
-        //    c.SaveChanges();
-        //    return RedirectToAction("DegerlendirmeListesi");
-        //}
 
         //iletişim paneli
 
-        public ActionResult İletisimGetir(int  id)
+        public ActionResult İletisimGetir(int id)
         {
             var degerler = c.iletisims.Find(id);
             return View("İletisimGetir", degerler);
@@ -261,7 +214,7 @@ namespace JacobFlix.Controllers
             var yorum = c.Yorumlars.Find(y.İD);
             yorum.KullanıcıAdı = y.KullanıcıAdı;
             yorum.Mail = y.Mail;
-           yorum.FilimID = y.FilimID;   
+            yorum.FilimID = y.FilimID;
             c.SaveChanges();
             return RedirectToAction("YorumListesi");
         }
@@ -299,7 +252,7 @@ namespace JacobFlix.Controllers
             c.SaveChanges();
             return RedirectToAction("KullaniciListesi");
         }
-        
+
 
     }
 }

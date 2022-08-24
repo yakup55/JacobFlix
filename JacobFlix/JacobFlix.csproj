@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202208041212536_addturrr.designer.cs">
       <DependentUpon>202208041212536_addturrr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208231028209_add isimdegistirme.cs" />
+    <Compile Include="Migrations\202208231028209_add isimdegistirme.designer.cs">
+      <DependentUpon>202208231028209_add isimdegistirme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\AdminGirisi.cs" />
     <Compile Include="Models\Siniflar\Context.cs" />
@@ -464,17 +468,13 @@
     <Content Include="webloginTema\fonts\Audiowide-Regular.ttf" />
     <Content Include="Views\AdminGirisYap\Login.cshtml" />
     <Content Include="Views\KullaniciGirisYap\Login2.cshtml" />
-    <Content Include="Views\AdminGiris\FlimListesi.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Flimİnceleme\Index.cshtml" />
     <Content Include="Views\Flimİnceleme\Detay.cshtml" />
     <Content Include="Views\Default\İletisimYap.cshtml" />
     <Content Include="Views\AdminGiris\YeniFlim.cshtml" />
     <Content Include="Views\AdminGiris\FlimGetir.cshtml" />
-    <Content Include="Views\AdminGiris\YeniDegerlendirme.cshtml" />
-    <Content Include="Views\AdminGiris\DegerlendirmeGetir.cshtml" />
     <Content Include="Views\AdminGiris\Index.cshtml" />
-    <Content Include="Views\AdminGiris\DegerlendirmeListesi.cshtml" />
     <Content Include="Views\AdminGiris\İletisimGetir.cshtml" />
     <Content Include="Views\AdminGiris\İletisimListesi.cshtml" />
     <Content Include="Views\KullaniciGiris\KayitOl.cshtml" />
@@ -539,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208041212536_addturrr.resx">
       <DependentUpon>202208041212536_addturrr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231028209_add isimdegistirme.resx">
+      <DependentUpon>202208231028209_add isimdegistirme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

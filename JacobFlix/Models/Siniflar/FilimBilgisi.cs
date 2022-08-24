@@ -21,12 +21,12 @@ namespace JacobFlix.Models.Siniflar
         public string İzle { get; set; }
 
         public string Fragman { get; set; }
-        public double ElestirmenDerece { get; set; }
+        public double FilimDerecesi { get; set; }
 
-        public string Tur { get; set; }
-        public double Sure { get; set; }
-        public string Yonetmen { get; set; }
-        public string CikisTarihi { get; set; }
+        public string FilimTur { get; set; }
+        public double FilimSure { get; set; }
+        public string FilimYonetmen { get; set; }
+        public string FilimCikisTarihi { get; set; }
 
         public int TurID { get; set; }
         public virtual Tur tur  { get; set; }
